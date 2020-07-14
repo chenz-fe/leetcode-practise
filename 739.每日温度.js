@@ -24,10 +24,29 @@ var dailyTemperatures = function (T) {
       // 计算 当前栈顶温度值与第一个高于它的温度值 的索引差值
       res[top] = i - top
     }
-    // 注意栈里存的不是温度值，而是索引值，这是为了后面方便计算
+    // 栈里存的不是温度值，而是索引值，这是为了后面方便计算
     stack.push(i)
   }
   // 返回结果数组
   return res
 };
+
+// cur   73, 74, 75, 71, 69, 72,76,73
+// stack 6,7
+// res   1, 1,4,2,1,1,0,0
+
+// var dailyTemperatures = function (T) {
+//   const len = T.length;
+//   let stack = [];
+//   let res = new Array(len).fill(0);
+//   for (let i = 0; i < len; i++) {
+//     while (stack.length && T[i] > T[stack[stack.length - 1]]) {
+//       let top = stack.pop();
+//       res[top] = i - top
+//     }
+//     stack.push(i)
+//   }
+//   return res;
+// }
+
 // @lc code=end
